@@ -14,10 +14,12 @@ function App() {
 
   useEffect(() => {
     dispatch(getCartItems());
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     dispatch(calculateTotals());
+    // eslint-disable-next-line
   }, [cartItems]);
 
   return (
