@@ -16,6 +16,7 @@ type CartItem = {
   title: string;
   price: string;
   img: string;
+  amount: 1;
 };
 
 type CartState = {
@@ -35,7 +36,35 @@ const initialState: CartState = {
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    clearCart: (state) => {
+      state.cartItems = [];
+    },
+    removeItem: (state, action: PayloadAction<string>) => {
+      state.cartItems = state.cartItems.filter(
+        (item) => item.id !== action.payload
+      );
+    },
+    increase: (state, { payload }: PayloadAction<{ id: string }>) => {
+      const cartItem = state.cartItems.find((item) => item.id === payload.id);
+      cartItem!.amount += 1;
+    },
+    decrease: (state, { payload }: PayloadAction<{ id: string }>) => {
+      const cartItem = state.cartItems.find((item) => item.id === payload.id);
+      cartItem!.amount -= 1;
+    },
+    calculateTotals: (state) => {
+      let itemsAmount = 0;
+      let itemsTotal = 0;
+
+      state.cartItems.forEach((item) => {
+        itemsAmount += item.amount;
+        itemsTotal += item.amount * parseFloat(item.price);
+      });
+      state.amount = itemsAmount;
+      state.total = itemsTotal;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCartItems.pending, (state) => {
@@ -54,5 +83,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const {} = cartSlice.actions;
+export const { clearCart, removeItem, increase, decrease, calculateTotals } =
+  cartSlice.actions;
 export default cartSlice.reducer;

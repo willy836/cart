@@ -12,7 +12,7 @@ const CartContainer = () => {
 
       <div>
         {cartItems.map((item) => {
-          return <CartItem key={item.id} {...item} amount={amount} />;
+          return <CartItem key={item.id} {...item} />;
         })}
       </div>
 
