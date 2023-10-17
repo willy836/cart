@@ -22,7 +22,7 @@ const CartContainer = () => {
         <hr className="border-t-2 border-gray-200 my-2 " />
         <div className="cart-total mb-10">
           <h4 className="flex justify-between font-bold text-gray-600 capitalize">
-            total <span>$ {total}</span>
+            total <span>$ {total.toFixed(2)}</span>
           </h4>
         </div>
         <div className="flex justify-center">
