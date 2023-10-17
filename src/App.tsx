@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import { getCartItems } from "./redux/cart/cartSlice";
 import { calculateTotals } from "./redux/cart/cartSlice";
+import Modal from "./components/Modal";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,10 +20,11 @@ function App() {
   }, [cartItems]);
 
   return (
-    <div className="App">
+    <main>
+      <Modal />
       <Navbar />
       <CartContainer />
-    </div>
+    </main>
   );
 }
 

@@ -1,0 +1,37 @@
+const Modal = () => {
+  return (
+    <aside className="modal-container">
+      <div className="modal">
+        <h4
+          className="leading-6 capitalize font-bold mb-4"
+          style={{ letterSpacing: "3px" }}
+        >
+          Remove all items from your shopping cart?
+        </h4>
+        <div className="flex justify-around">
+          <button
+            type="button"
+            className="uppercase bg-white text-indigo-800 font-medium border-2 border-indigo-800 rounded py-1 px-4"
+            style={{ letterSpacing: "3px" }}
+            onClick={() => {
+              console.log("confirm-btn");
+            }}
+          >
+            confirm
+          </button>
+          <button
+            type="button"
+            style={{ letterSpacing: "2px" }}
+            className="uppercase bg-white text-red-800 font-medium border-2 border-red-800 rounded py-1 px-4"
+            onClick={() => {
+              console.log("clear btn");
+            }}
+          >
+            cancel
+          </button>
+        </div>
+      </div>
+    </aside>
+  );
+};
+export default Modal;
