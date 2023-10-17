@@ -6,10 +6,31 @@ const CartContainer = () => {
   const { cartItems, amount, total } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
+  if (amount < 1) {
+    return (
+      <section className="cart">
+        <header>
+          <h2
+            style={{ letterSpacing: "2px" }}
+            className="uppercase text-center mb-10 font-bold text-4xl text-gray-700"
+          >
+            your cart
+          </h2>
+          <h4 className="text-center text-xl">is currently empty</h4>
+        </header>
+      </section>
+    );
+  }
+
   return (
     <section className="cart">
       <header>
-        <h2 className="capitalize text-center mb-10">your cart</h2>
+        <h2
+          style={{ letterSpacing: "2px" }}
+          className="uppercase text-center mb-10 font-bold text-4xl text-gray-700"
+        >
+          your cart
+        </h2>
       </header>
 
       <div>
