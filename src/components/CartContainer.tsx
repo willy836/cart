@@ -1,8 +1,10 @@
 import CartItem from "./CartItem";
-import { useAppSelector } from "../hooks";
+import { useAppSelector, useAppDispatch } from "../hooks";
+import { clearCart } from "../redux/cart/cartSlice";
 
 const CartContainer = () => {
   const { cartItems, amount, total } = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
 
   return (
     <section className="cart">
@@ -27,7 +29,7 @@ const CartContainer = () => {
           <button
             style={{ letterSpacing: "4px" }}
             className="border-solid border-2 border-red-800 text-red-800 py-2 px-8 uppercase rounded"
-            onClick={() => console.log("clear cart")}
+            onClick={() => dispatch(clearCart())}
           >
             clear cart
           </button>
