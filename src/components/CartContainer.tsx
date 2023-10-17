@@ -1,6 +1,6 @@
 import CartItem from "./CartItem";
 import { useAppSelector, useAppDispatch } from "../hooks";
-import { clearCart } from "../redux/cart/cartSlice";
+import { openModal } from "../redux/modal/modalSlice";
 
 const CartContainer = () => {
   const { cartItems, amount, total } = useAppSelector((state) => state.cart);
@@ -29,7 +29,7 @@ const CartContainer = () => {
           <button
             style={{ letterSpacing: "4px" }}
             className="border-solid border-2 border-red-800 text-red-800 py-2 px-8 uppercase rounded"
-            onClick={() => dispatch(clearCart())}
+            onClick={() => dispatch(openModal())}
           >
             clear cart
           </button>
