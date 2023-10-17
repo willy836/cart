@@ -11,8 +11,6 @@ function App() {
     dispatch(getCartItems());
   }, []);
 
-  const { cartItems } = useAppSelector((state) => state.cart);
-  console.log(cartItems);
   return (
     <div className="App">
       <Navbar />
