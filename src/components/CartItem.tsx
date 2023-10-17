@@ -31,7 +31,7 @@ const CartItem = () => {
         <button
           className="amount-btn"
           onClick={() => {
-            console.log("amount btn");
+            console.log("decrease btn");
           }}
         >
           <ChevronDown />
